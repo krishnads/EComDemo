@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		D6918601247599260063D8E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6918600247599260063D8E1 /* AppDelegate.swift */; };
 		D6918603247599260063D8E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6918602247599260063D8E1 /* SceneDelegate.swift */; };
-		D6918605247599260063D8E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6918604247599260063D8E1 /* ViewController.swift */; };
+		D6918605247599260063D8E1 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6918604247599260063D8E1 /* DashboardVC.swift */; };
 		D6918608247599260063D8E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6918606247599260063D8E1 /* Main.storyboard */; };
 		D691860B247599260063D8E1 /* EComDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6918609247599260063D8E1 /* EComDemo.xcdatamodeld */; };
 		D691860D247599290063D8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D691860C247599290063D8E1 /* Assets.xcassets */; };
 		D6918610247599290063D8E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D691860E247599290063D8E1 /* LaunchScreen.storyboard */; };
+		D691861924759DD10063D8E1 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691861824759DD10063D8E1 /* ProductsResponse.swift */; };
+		D691861B24759E090063D8E1 /* DashboardVieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691861A24759E090063D8E1 /* DashboardVieModel.swift */; };
+		D691861D24759F0A0063D8E1 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691861C24759F0A0063D8E1 /* URLSession+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D69185FD247599260063D8E1 /* EComDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EComDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6918600247599260063D8E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6918602247599260063D8E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6918604247599260063D8E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D6918604247599260063D8E1 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		D6918607247599260063D8E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D691860A247599260063D8E1 /* EComDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EComDemo.xcdatamodel; sourceTree = "<group>"; };
 		D691860C247599290063D8E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D691860F247599290063D8E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6918611247599290063D8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D691861824759DD10063D8E1 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
+		D691861A24759E090063D8E1 /* DashboardVieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVieModel.swift; sourceTree = "<group>"; };
+		D691861C24759F0A0063D8E1 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,7 @@
 			children = (
 				D6918600247599260063D8E1 /* AppDelegate.swift */,
 				D6918602247599260063D8E1 /* SceneDelegate.swift */,
-				D6918604247599260063D8E1 /* ViewController.swift */,
+				D691861724759DB40063D8E1 /* Dashboard */,
 				D6918606247599260063D8E1 /* Main.storyboard */,
 				D691860C247599290063D8E1 /* Assets.xcassets */,
 				D691860E247599290063D8E1 /* LaunchScreen.storyboard */,
@@ -68,6 +74,17 @@
 				D6918609247599260063D8E1 /* EComDemo.xcdatamodeld */,
 			);
 			path = EComDemo;
+			sourceTree = "<group>";
+		};
+		D691861724759DB40063D8E1 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D6918604247599260063D8E1 /* DashboardVC.swift */,
+				D691861824759DD10063D8E1 /* ProductsResponse.swift */,
+				D691861A24759E090063D8E1 /* DashboardVieModel.swift */,
+				D691861C24759F0A0063D8E1 /* URLSession+Extension.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6918605247599260063D8E1 /* ViewController.swift in Sources */,
+				D691861924759DD10063D8E1 /* ProductsResponse.swift in Sources */,
+				D691861B24759E090063D8E1 /* DashboardVieModel.swift in Sources */,
+				D691861D24759F0A0063D8E1 /* URLSession+Extension.swift in Sources */,
+				D6918605247599260063D8E1 /* DashboardVC.swift in Sources */,
 				D6918601247599260063D8E1 /* AppDelegate.swift in Sources */,
 				D691860B247599260063D8E1 /* EComDemo.xcdatamodeld in Sources */,
 				D6918603247599260063D8E1 /* SceneDelegate.swift in Sources */,
@@ -291,7 +311,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J9YKQ7ST9E;
 				INFOPLIST_FILE = EComDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +330,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J9YKQ7ST9E;
 				INFOPLIST_FILE = EComDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
