@@ -10,15 +10,16 @@ import UIKit
 
 class DashboardVC: UIViewController {
     
-    var activityIndicator: UIActivityIndicatorView {
+    @IBOutlet weak var tableViewProducts: UITableView!
+    
+    var activityIndicator: UIActivityIndicatorView = {
         let ai = UIActivityIndicatorView()
-        ai.style = .whiteLarge
+        ai.style = .large
         ai.color = .darkGray
         ai.hidesWhenStopped = true
         ai.startAnimating()
-
         return ai
-    }
+    }()
     
     let viewModel = DashboardVieModel()
 
@@ -26,15 +27,21 @@ class DashboardVC: UIViewController {
         super.viewDidLoad()
         getDataFromAPI()
     }
-    
+}
+
+extension DashboardVC {
+
+}
+
+extension DashboardVC {
     func getDataFromAPI() {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         viewModel.getProducts { [unowned self] in
-            self.activityIndicator.stopAnimating()
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
         }
     }
-
-
 }
 

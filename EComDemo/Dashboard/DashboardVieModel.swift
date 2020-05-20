@@ -10,9 +10,22 @@ import Foundation
 
 class DashboardVieModel {
     
-    var apiResponse: ProductsResponse?
+    private var apiResponse: ProductsResponse?
     let apiUrl = "https://stark-spire-93433.herokuapp.com/json"
     
+    var categories: [Category]? {
+        if let response = apiResponse {
+            return response.categories
+        }
+        return [Category]()
+    }
+    
+    var rankings: [Ranking]? {
+        if let response = apiResponse {
+            return response.rankings
+        }
+        return [Ranking]()
+    }
     
     
     func getProducts(completion: @escaping (() -> Void)) {
@@ -20,6 +33,7 @@ class DashboardVieModel {
             if let productsResponse = productsResponse {
                 self.apiResponse = productsResponse
             }
+            completion()
         }
         task.resume()
     }
