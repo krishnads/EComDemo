@@ -29,7 +29,30 @@ class DashboardVC: UIViewController {
     }
 }
 
-extension DashboardVC {
+extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.rankings?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.rankingAt(section)?.ranking ?? ""
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableCell") as! CategoryTableCell
+        cell.setupCellWith(viewModel.productsFromRankingAt(indexPath.section))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
+    
 
 }
 
@@ -40,6 +63,7 @@ extension DashboardVC {
         viewModel.getProducts { [unowned self] in
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
+                self.tableViewProducts.reloadData()
             }
         }
     }
