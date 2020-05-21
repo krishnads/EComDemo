@@ -13,7 +13,8 @@ class CategoryTableCell: UITableViewCell {
     @IBOutlet weak var collectionViewProducts: UICollectionView!
 
     var arrayProducts: [RankingProduct]?
-    
+    var arrayCategories: [Category]?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,8 +26,9 @@ class CategoryTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCellWith(_ products: [RankingProduct]) {
+    func setupCellWith(_ products: [RankingProduct], categories: [Category]) {
         arrayProducts = products
+        arrayCategories = categories
         self.collectionViewProducts.delegate = self
         self.collectionViewProducts.dataSource = self
         self.collectionViewProducts.reloadData()
@@ -43,11 +45,31 @@ extension CategoryTableCell:  UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
         if let product = arrayProducts?[indexPath.row] {
-            cell.labelProductName.text = product.name ?? ""
-            
+            if let p = getCatProductWith(id: product.id!) {
+                cell.setupCellWith(p)
+            }
         }
         
         return cell
+    }
+    
+    
+    func getCatProductWith(id: Int) -> CategoryProduct? {
+        if let categories = arrayCategories {
+            let products = categories.flatMap { (cat) in
+                return cat.products!.map({ (p) in
+                    return p
+                })
+            }.filter { (p) -> Bool in
+                return p.id == id
+            }
+            
+            if products.count > 0 {
+                return products[0]
+            }
+        }
+        
+        return nil
     }
     
     

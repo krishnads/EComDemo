@@ -32,10 +32,13 @@ class DashboardVC: UIViewController {
 extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.rankings?.count ?? 0
+        return (viewModel.rankings?.count ?? 0) + 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == viewModel.rankings?.count {
+            return "All Categories"
+        }
         return viewModel.rankingAt(section)?.ranking ?? ""
     }
     
@@ -44,8 +47,12 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == viewModel.rankings?.count {
+            return UITableViewCell()
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableCell") as! CategoryTableCell
-        cell.setupCellWith(viewModel.productsFromRankingAt(indexPath.section))
+        cell.setupCellWith(viewModel.productsFromRankingAt(indexPath.section), categories: viewModel.categories)
         return cell
     }
     

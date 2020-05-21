@@ -13,9 +13,9 @@ class DashboardVieModel {
     private var apiResponse: ProductsResponse?
     let apiUrl = "https://stark-spire-93433.herokuapp.com/json"
     
-    var categories: [Category]? {
+    var categories: [Category] {
         if let response = apiResponse {
-            return response.categories
+            return response.categories!
         }
         return [Category]()
     }
@@ -44,23 +44,6 @@ class DashboardVieModel {
         }
         return [RankingProduct]()
     }
-    
-    func getCatProductWith(id: Int) -> CategoryProduct? {
-        let categories = apiResponse?.categories.flatMap({ cats in
-            return cats.map { cat in
-                return cat.products.map { p in
-                    return p
-                }
-            }
-        })
-        
-        let products = categories.products?.filter({ p in
-            p.id == id
-        })
-        
-        return products
-    }
-    
     
     
     func getProducts(completion: @escaping (() -> Void)) {
